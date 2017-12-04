@@ -2,12 +2,12 @@
 # Maintainer: Peter Strapp <peter at strapp.co.uk>
 
 pkgname=python-pigpio-git
-pkgver=r89.399eb5a
+pkgver=r141.388d0e6
 pkgrel=1
 url="http://abyz.co.uk/rpi/pigpio/"
 license=('custom:UNLICENSE')
 arch=('any')
-source=("git+https://github.com/joan2937/pigpio.git")
+source=("git+https://github.com/gyscos/pigpio.git")
 sha1sums=('SKIP')
 
 _gitname='pigpio'
@@ -30,5 +30,7 @@ build() {
 
 package() {
   cd "$_gitname"
-  make DESTDIR="$pkgdir" install
+  mkdir -p "$pkgdir"/usr/lib/systemd/system
+  install -m644 util/pigpiod.service "$pkgdir"/usr/lib/systemd/system/pigpiod.service
+  make prefix=/usr DESTDIR="$pkgdir" install
 }
