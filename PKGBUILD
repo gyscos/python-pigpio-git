@@ -7,7 +7,7 @@ pkgrel=1
 url="http://abyz.co.uk/rpi/pigpio/"
 license=('custom:UNLICENSE')
 arch=('any')
-source=("git+https://github.com/gyscos/pigpio.git")
+source=("git+https://github.com/joan2937/pigpio")
 sha1sums=('SKIP')
 
 _gitname='pigpio'
